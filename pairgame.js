@@ -38,9 +38,7 @@ const randomNumber = () => {
     do {
         randi = Math.floor(Math.random() * randomArray.length);
         randiArray.push(randomArray[randi]);
-        randomArray.splice(randi, 1);
-        console.log(randiArray);
-        console.log(randomArray);
+        randomArray.splice(randi, 1);        
     } while (randomArray.length > 0)
 }
 
@@ -74,9 +72,6 @@ const checkEnd = () => {
         setTimeout(function () {
             cardArray.map(item => item.setAttribute('class', 'card card-background animation2'));
             time.textContent = '00:00';
-            seconds = 0;
-            minutes = 0;
-            memory = [];
             startGame();
         }, 5000);
     }
@@ -85,6 +80,9 @@ const checkEnd = () => {
 const startGame = () => {
     randomArray = [1, 1, 2, 2, 3, 3, 4, 4, 5, 5];
     randiArray = [];
+    seconds = 0;
+    minutes = 0;
+    memory = [];
     timeNull();
     openCard();
     randomNumber();
