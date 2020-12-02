@@ -9,7 +9,7 @@ let seconds = 0;
 const time = document.querySelector('.time');
 
 const timeNull = () => {
-    seconds = seconds <= 9 ? `0${seconds}` : `${seconds}`;     
+    seconds = seconds <= 9 ? `0${seconds}` : `${seconds}`;
     time.textContent = `${minutes}:${seconds}`;
 }
 
@@ -20,7 +20,7 @@ const timeToWrite = () => {
     now2 = Date.now();
     seconds = Math.floor((now2 - now) / 1000) - minutes * 60;
     if (seconds === 60) {
-        minutes += 1;        
+        minutes += 1;
         seconds = Math.floor((now2 - now) / 1000) - minutes * 60;
     }
     timeNull();
@@ -71,5 +71,10 @@ const checkEnd = () => {
         }, 5000);
     }
 }
-timeNull();
-openCard();
+
+const startGame = () => {
+    timeNull();
+    openCard();
+}
+
+startGame();
