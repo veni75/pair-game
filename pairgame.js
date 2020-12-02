@@ -5,6 +5,9 @@ let memory = [];
 let now, now2;
 let minutes = 0;
 let seconds = 0;
+let randomArray = [];
+let randiArray = [];
+let randi;
 
 const time = document.querySelector('.time');
 
@@ -31,13 +34,19 @@ const timeToWrite = () => {
     }
 }
 
+const randomNumber = () => {
+    do {
+        randi = Math.floor(Math.random() * randomArray.length);
+        randiArray.push(randomArray[randi]);
+        randomArray.splice(randi, 1);
+        console.log(randiArray);
+        console.log(randomArray);
+    } while (randomArray.length > 0)
+}
+
 const openCardFn = (i) => {
     timeToWrite();
-    if (i < 5) {
-        cardArray[i].setAttribute('class', `card card-image${i + 1} animation1`);
-    } else {
-        cardArray[i].setAttribute('class', `card card-image${i - 4} animation1`);
-    }
+    cardArray[i].setAttribute('class', `card card-image${randiArray[i]} animation1`);
     check(i);
 }
 
@@ -48,7 +57,7 @@ const openCard = () => {
 const check = (i) => {
     memory.push(i);
     let length = memory.length;
-    if (memory.length % 2 === 0) {
+    if (length % 2 === 0) {
         if (cardArray[memory[length - 1]].classList.value !== cardArray[memory[length - 2]].classList.value) {
             setTimeout(function () {
                 cardArray[i].setAttribute('class', 'card card-background animation2');
@@ -68,13 +77,17 @@ const checkEnd = () => {
             seconds = 0;
             minutes = 0;
             memory = [];
+            startGame();
         }, 5000);
     }
 }
 
 const startGame = () => {
+    randomArray = [1, 1, 2, 2, 3, 3, 4, 4, 5, 5];
+    randiArray = [];
     timeNull();
     openCard();
+    randomNumber();
 }
 
 startGame();
