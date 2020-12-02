@@ -8,24 +8,24 @@ body{
 }
 
 h1, h2{
-    color: white;
+    color: #ffffff;
     text-transform: uppercase;
 }
 
 .time{
-    color: white;
+    color: #ffffff;
     font-size: 3rem;
 }
 
 .cards {
     display: flex;    
-    margin: 2rem auto;
+    margin: 0 auto;
     max-width: 60%;
 }
 
 .card{    
     border-radius: 5px;
-    height: 300px;
+    height: 250px;
     margin: 1rem;
     width: 200px;
 }
@@ -42,10 +42,10 @@ h1, h2{
     transition: all 0.7s ease-in-out;
 }
 
-.card-background{
-    
+.card-background{    
     background-image: url('images/backgr.png');
 }
+
 .card-image1{    
     background-color: rgb(155, 158, 158);
     background-image: url('images/kep1.jpg');
