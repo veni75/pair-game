@@ -1,0 +1,77 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    background-color: rgb(63, 252, 252);
+    text-align: center;
+}
+
+h1, h2{
+    color: white;
+    text-transform: uppercase;
+}
+
+.time{
+    color: white;
+    font-size: 3rem;
+}
+
+.cards {
+    display: flex;    
+    margin: 2rem auto;
+    max-width: 60%;
+}
+
+.card{    
+    border-radius: 5px;
+    height: 300px;
+    margin: 1rem;
+    width: 200px;
+}
+
+.animation1{
+    transform: rotateY(180deg);
+    -ms-transform: rotateY(180deg);
+    transition: all 0.7s ease-in-out;
+}
+
+.animation2{
+    transform: rotateY(360deg);
+    -ms-transform: rotateY(360deg);
+    transition: all 0.7s ease-in-out;
+}
+
+.card-background{
+    
+    background-image: url('images/backgr.png');
+}
+.card-image1{    
+    background-color: rgb(155, 158, 158);
+    background-image: url('images/kep1.jpg');
+    background-repeat: no-repeat;
+}
+
+.card-image2{    
+    background-color: rgb(155, 158, 158);
+    background-image: url('images/kep2.jpg');
+    background-repeat: no-repeat;
+}
+
+.card-image3{    
+    background-color: rgb(155, 158, 158);
+    background-image: url('images/kep3.jpg');
+    background-repeat: no-repeat;
+}
+
+.card-image4{    
+    background-color: rgb(155, 158, 158);
+    background-image: url('images/kep4.jpg');
+    background-repeat: no-repeat;
+}
+
+.card-image5{    
+    background-color: rgb(155, 158, 158);
+    background-image: url('images/kep5.jpg');
+    background-repeat: no-repeat;
+}
