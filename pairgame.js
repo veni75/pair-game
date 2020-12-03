@@ -77,7 +77,7 @@ const checkEnd = () => {
 const startGame = () => {
     randomArray = [1, 1, 2, 2, 3, 3, 4, 4, 5, 5];
     randiArray = [];
-    seconds = 57;
+    seconds = 0;
     minutes = 0;
     memory = [];
     timeNull();
