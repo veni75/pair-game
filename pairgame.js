@@ -2,9 +2,7 @@
 
 const cardArray = Array.from(document.querySelectorAll('.card'));
 let memory = [];
-let now, now2;
-let minutes = 0;
-let seconds = 0;
+let minutes, seconds;
 let randomArray = [];
 let randiArray = [];
 let randi;
@@ -12,38 +10,37 @@ let randi;
 const time = document.querySelector('.time');
 
 const timeNull = () => {
-    seconds = seconds <= 9 ? `0${seconds}` : `${seconds}`;
-    time.textContent = `${minutes}:${seconds}`;
+    let myseconds = seconds <= 9 ? `0${seconds}` : `${seconds}`;
+    let myminutes = minutes <= 9 ? `0${minutes}` : `${minutes}`;
+    time.textContent = `${myminutes}:${myseconds}`;
 }
 
 const timeToWrite = () => {
-    if (memory.length === 0) {
-        now = Date.now();
-    }
-    now2 = Date.now();
-    seconds = Math.floor((now2 - now) / 1000) - minutes * 60;
-    if (seconds === 60) {
-        minutes += 1;
-        seconds = Math.floor((now2 - now) / 1000) - minutes * 60;
-    }
-    timeNull();
     if (cardArray.some(item => item.classList.value.includes('card-background'))) {
         setTimeout(function () {
+            seconds += 1;            
+            if (seconds === 60) {
+                minutes += 1;
+                seconds = seconds - 60;
+            }
+            timeNull();
             timeToWrite();
         }, 1000);
-    }
+    }   
 }
 
 const randomNumber = () => {
     do {
         randi = Math.floor(Math.random() * randomArray.length);
         randiArray.push(randomArray[randi]);
-        randomArray.splice(randi, 1);        
+        randomArray.splice(randi, 1);
     } while (randomArray.length > 0)
 }
 
 const openCardFn = (i) => {
-    timeToWrite();
+    if (memory.length === 0) {
+        timeToWrite();
+    }    
     cardArray[i].setAttribute('class', `card card-image${randiArray[i]} animation1`);
     check(i);
 }
@@ -60,7 +57,7 @@ const check = (i) => {
             setTimeout(function () {
                 cardArray[i].setAttribute('class', 'card card-background animation2');
                 cardArray[[memory[length - 2]]].setAttribute('class', 'card card-background animation2');
-            }, 1000);
+            }, 700);
         } else {
             checkEnd();
         }
@@ -80,7 +77,7 @@ const checkEnd = () => {
 const startGame = () => {
     randomArray = [1, 1, 2, 2, 3, 3, 4, 4, 5, 5];
     randiArray = [];
-    seconds = 0;
+    seconds = 57;
     minutes = 0;
     memory = [];
     timeNull();
